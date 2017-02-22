@@ -1,30 +1,29 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Bootcont</title>
-    <%= csrf_meta_tags %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
-
-  <body class="container">
-    <nav class="navbar navbar-success">
-  
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#">WebSiteName</a>
+<head>
+  <title>Pragprog Books Online Store</title>
+  <%= stylesheet_link_tag    "application", media: "all",
+    "data-turbolinks-track" => 'reload' %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => 'reload' %>
+  <%= csrf_meta_tags %>
+</head>
+<body class="<%= controller.controller_name %>">
+  <div id="banner">
+    <%= image_tag 'logo.svg', alt: 'The Pragmatic Bookshelf' %>
+    <span class="title"><%= @page_title %></span>
+  </div>
+  <div id="columns">
+    <div id="side">
+      <ul>
+        <li><a href="http://www....">Home</a></li>
+        <li><a href="http://www..../faq">Questions</a></li>
+        <li><a href="http://www..../news">News</a></li>
+        <li><a href="http://www..../contact">Contact</a></li>
+      </ul>
     </div>
-    <ul class="nav navbar-nav">
-      <li><a href="/">Typos</a></li>  
-      <li><a href="#">home</a></li>
-      <li><a href="#">help</a></li>
-      <li><a href="#">about</a></li>
-    </ul>
-  
-    </nav>
-    <div>
-    <%= yield %>
-    
+    <div id="main">
+      <%= yield %>
     </div>
-  </body>
+  </div>
+</body>
 </html>
