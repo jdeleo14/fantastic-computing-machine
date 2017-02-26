@@ -1,12 +1,24 @@
 <p id="notice"><%= notice %></p>
 
+<h2>Your Pragmatic Cart</h2>
+
 <div class="panel panel-default">
 
 <div class="panel-heading">cart</div>
 
+
 <div class="panel-body">
-
-
+ <table class="table table-responsive">
+    
+    <% @cart.line_items.each do |item| %>
+    <tr>
+    <td><%= item.quantity %> &times; </td><td><%= item.product.title %></td><td><%= number_to_currency(item.total_price) %></td>
+    </tr>
+    <% end %>
+    <tr>
+    <td colspan="2">Total Order Value </td><td><%= number_to_currency(@cart.total_price) %></td>
+    </tr>
+ </table>
 </div>
 
 <div class="panel-footer">
@@ -16,8 +28,13 @@
 
 </div></div>
 
-	<ul>
-	  <% @cart.line_items.each do |item| %>
-	    <li><%= item.product.title %></li>
-	  <% end %>
-	</ul>
+<ul>
+    <% @cart.line_items.each do |item| %>
+    <li><%= item.quantity %> &times; <%= item.product.title %></li>
+  <% end %>
+</ul>
+
+<%= button_to 'Empty cart', @cart, method: :delete, data: { confirm: 'Are you sure?' } %>
+
+<%= link_to 'Keep Shopping', store_index_url , class:"btn btn-primary" %>
+
