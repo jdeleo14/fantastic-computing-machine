@@ -34,7 +34,10 @@
   <% end %>
 </ul>
 
-<%= button_to 'Empty cart', @cart, method: :delete, data: { confirm: 'Are you sure?' } %>
 
-<%= link_to 'Keep Shopping', store_index_url , class:"btn btn-primary" %>
+<%= link_to 'Keep Shopping', store_index_url , class:"btn btn-warning" %>
 
+
+<%= button_to "Checkout", new_order_path, class:"btn btn-success", method: :get %>
+
+<%= button_to 'Empty cart', class:"btn btn-warning", method: :delete, data: { confirm: 'Are you sure?' } %>
