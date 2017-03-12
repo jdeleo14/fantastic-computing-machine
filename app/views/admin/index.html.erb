@@ -1,0 +1,16 @@
+<h1>Welcome</h1>
+It's <%= Time.now %>
+We have <%= pluralize(@total_orders, "order") %>.
+
+Remember to bootstrap this!
+
+The index() action in the admin_controller sets up the count:
+
+rails50/depot_r/app/controllers/admin_controller.rb
+
+class AdminController < ApplicationController
+#...
+ def index
+ @total_orders = Order.count
+ end
+end

@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+
+<div class="panel panel-default">
+
+<div class="panel-heading">user</div>
+
+<div class="panel-body">
+
+
+<p>
+  <strong>Name:</strong>
+  <%= @user.name %>
+</p>
+
+
+</div>
+
+<div class="panel-footer">
+
+<%= link_to 'Edit', edit_user_path(@user) ,class:"btn btn-xs btn-danger" %> |
+<%= link_to 'Back', users_path , class:"btn btn-xs btn-danger" %>
+
+</div></div>
